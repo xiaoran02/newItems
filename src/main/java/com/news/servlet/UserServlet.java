@@ -12,9 +12,9 @@ public class UserServlet implements Servlet {
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
 
         //获取表单提交信息
-        ServletInputStream inputStream = servletRequest.getInputStream();
-        System.out.println(inputStream);
-        
+        Object username =  servletRequest.getAttribute("uname");
+        Object password =  servletRequest.getAttribute("upwd");
+
 
     }
 
