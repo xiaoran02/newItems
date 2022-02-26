@@ -11,15 +11,40 @@
   <link href="css/main.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript"></script>
+  <script>
+    function check(){
+      var username = document.getElementById("uname")
+      console.log(username)
+      var password = document.getElementById("upwd")
+
+      if(username === ""){
+        alert("用户名不能为空！")
+        console.log(1)
+        username.focus()   // 获取焦点
+        return false
+      }
+      else if (password === ""){
+        alert("密码不能为空！")
+        password.focus()
+        return false
+      }
+      return true
+    }
+
+    function focusOnLogin(){
+      let username = document.getElementById("uname")
+      username.focus()
+    }
+  </script>
 </head>
-<body>
+<body onload="focusOnLogin()">
 <div id="header">
   <div id="top_login">
-    <form action="login" method="post">
+    <form action="login" method="post" onsubmit="return check()">
       <label> 登录名 </label>
-      <input type="text" name="uname" value="" class="login_input" />
+      <input type="text" name="uname" id="uname" value="" class="login_input" />
       <label> 密&#160;&#160;码 </label>
-      <input type="password" name="upwd" value="" class="login_input" />
+      <input type="password" name="upwd" id="upwd" value="" class="login_input" />
       <input type="submit" class="login_sub" value="登录" />
       <label id="error"> </label>
       <img src="images/friend_logo.gif" alt="Google" id="friend_logo" />
